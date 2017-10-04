@@ -2,10 +2,10 @@
 using System.Linq;
 using System.Collections.Generic;
 
-using Ardenian.Libraries.ExpressionParser.Data;
-using Ardenian.Libraries.ExpressionParser.Values;
+using Ardenian.Libraries.CSharp.ExpressionParser.Data;
+using Ardenian.Libraries.CSharp.ExpressionParser.Values;
 
-namespace Ardenian.Libraries.ExpressionParser
+namespace Ardenian.Libraries.CSharp.ExpressionParser
 {
     /// <summary>
     /// Parses an expression to an expression tree.

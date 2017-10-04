@@ -1,7 +1,7 @@
 ﻿using System;
-using Ardenian.Libraries.ExpressionParser.Data;
+using Ardenian.Libraries.CSharp.ExpressionParser.Data;
 
-namespace Ardenian.Libraries.ExpressionParser.Values
+namespace Ardenian.Libraries.CSharp.ExpressionParser.Values
 {
     public class Function<T> : Value<T>
     {

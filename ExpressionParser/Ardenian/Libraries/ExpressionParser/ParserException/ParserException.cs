@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Ardenian.Libraries.ExpressionParser
+namespace Ardenian.Libraries.CSharp.ExpressionParser
 {
     public class ParserException : Exception
     {

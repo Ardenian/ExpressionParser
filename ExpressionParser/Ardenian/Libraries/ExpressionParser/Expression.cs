@@ -1,8 +1,8 @@
 ﻿using System;
-using Ardenian.Libraries.ExpressionParser.Data;
-using Ardenian.Libraries.ExpressionParser.Values;
+using Ardenian.Libraries.CSharp.ExpressionParser.Data;
+using Ardenian.Libraries.CSharp.ExpressionParser.Values;
 
-namespace Ardenian.Libraries.ExpressionParser
+namespace Ardenian.Libraries.CSharp.ExpressionParser
 {
     public class Expression<T>
     {

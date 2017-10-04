@@ -1,4 +1,4 @@
-﻿namespace Ardenian.Libraries.ExpressionParser.Data
+﻿namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
 {
     public interface IConvertible<T>
     {

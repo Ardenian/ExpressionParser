@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Ardenian.Libraries.ExpressionParser.Data
+namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
 {
     public abstract class ParserData<T> : IParserData<T>, IConvertible<T>
     {

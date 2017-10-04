@@ -1,4 +1,4 @@
-﻿namespace Ardenian.Libraries.ExpressionParser.Values
+﻿namespace Ardenian.Libraries.CSharp.ExpressionParser.Values
 {
     public abstract class Value<T>
     {

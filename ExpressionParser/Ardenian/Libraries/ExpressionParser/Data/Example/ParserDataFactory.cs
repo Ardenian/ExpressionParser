@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Ardenian.Libraries.ExpressionParser.Data
+namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
 {
     public static class ParserDataFactory
     {
