@@ -7,6 +7,9 @@ using Ardenian.Libraries.ExpressionParser.Values;
 
 namespace Ardenian.Libraries.ExpressionParser
 {
+    /// <summary>
+    /// Parses an expression to an expression tree.
+    /// </summary>
     public class ExpParser<T>
     {
         public IParserData<T> Data;
@@ -15,8 +18,13 @@ namespace Ardenian.Libraries.ExpressionParser
 
         public ExpParser() => Data = ParserDataFactory.CreateData<T>();
 
+        /// <summary>
+        /// Parse an expression to an expression tree. 
+        /// </summary>
         public Expression<T> ParseToExpression(string expression) => new Expression<T>(ParseExpression(expression.Trim()), ref Data);
-
+        /// <summary>
+        /// Parses an expression to a raw value.
+        /// </summary>
         public T ParseToValue(string expression) => ParseToExpression(expression).ToValue();
 
         private int FindPartnerIndex(string s, int index, char partner)
@@ -172,7 +180,7 @@ namespace Ardenian.Libraries.ExpressionParser
                 default:
                     if (array.Any(item => string.IsNullOrEmpty(item)))
                     {
-                        throw new ParserException($"ExpParser: Operator '{identifier}' does not support empty sides. Both sides need to have values, as in <value><operator><value>.");
+                        throw new ParserException($"ExpParser: Operator '{identifier}' does not support empty sides.");
                     }
                     return new Operator<T>(identifier, ref Data, Array.ConvertAll(array, item => ParseExpression(item)));
             }
