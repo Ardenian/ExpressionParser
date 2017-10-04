@@ -13,7 +13,7 @@ namespace Ardenian.Libraries.ExpressionParser
 
         public ExpParser(ref IParserData<T> data) => Data = data ?? throw new ParserException("ExpParser: Constructor: Data in dataless constructor may not be null, as the parser depends on it.");
 
-        public ExpParser() => Data = ParameterFactory.CreateParameter<T>();
+        public ExpParser() => Data = ParserDataFactory.CreateData<T>();
 
         public Expression<T> ParseToExpression(string expression) => new Expression<T>(ParseExpression(expression.Trim()), ref Data);
 

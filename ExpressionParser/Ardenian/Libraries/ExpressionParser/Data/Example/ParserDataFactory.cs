@@ -4,9 +4,9 @@ using System.Linq;
 
 namespace Ardenian.Libraries.ExpressionParser.Data
 {
-    public static class ParameterFactory
+    public static class ParserDataFactory
     {
-        public static IParserData<T> CreateParameter<T>()
+        public static IParserData<T> CreateData<T>()
         {
             return Create<T>();
         }
@@ -15,17 +15,17 @@ namespace Ardenian.Libraries.ExpressionParser.Data
             switch (typeof(T).ToString())
             {
                 case "System.Int32":
-                    return new DefaultParameters_Int32() as IParserData<T>;
+                    return new DefaultParserData_Int32() as IParserData<T>;
                 default:
                     throw new NotSupportedException($"ExpParser: Constructor: Type \'{typeof(T)}\' is not supported for dataless parser construction.");
             }
         }
     }
 
-    public class DefaultParameters_Int32 : Parameter<int>
+    public class DefaultParserData_Int32 : ParserData<int>
     {
-        public override IDictionary<string, int> Parameters => datas;
-        private Dictionary<string, int> datas;
+        public override IDictionary<string, int> Variables => variables;
+        private Dictionary<string, int> variables;
 
         public override IDictionary<string, Func<int, int, int>> Operators => operators;
         private Dictionary<string, Func<int, int, int>> operators;
@@ -42,9 +42,9 @@ namespace Ardenian.Libraries.ExpressionParser.Data
             return int.TryParse(s, out result);
         }
 
-        public DefaultParameters_Int32()
+        public DefaultParserData_Int32()
         {
-            datas = new Dictionary<string, int>();
+            variables = new Dictionary<string, int>();
 
             operators = new Dictionary<string, Func<int, int, int>>()
             {

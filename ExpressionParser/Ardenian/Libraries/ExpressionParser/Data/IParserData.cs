@@ -5,7 +5,7 @@ namespace Ardenian.Libraries.ExpressionParser.Data
 {
     public interface IParserData<T>
     {
-        IDictionary<string, T> Parameters { get; }
+        IDictionary<string, T> Variables { get; }
         IDictionary<string, Func<T, T, T>> Operators { get; }
         IDictionary<string, Func<T[], T>> Functions { get; }
 
