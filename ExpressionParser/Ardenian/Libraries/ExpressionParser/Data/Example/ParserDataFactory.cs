@@ -20,9 +20,8 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
                     return new DefaultParserData_Float() as IParserData<T>;
                 case "System.Double":
                     return new DefaultParserData_Double() as IParserData<T>;
-
                 default:
-                    throw new NotSupportedException($"ExpParser: Constructor: Type \'{typeof(T)}\' is not supported for dataless parser construction.");
+                    throw new ParserException($"Type \'{typeof(T)}\' is not supported for parameterless parser construction.");
             }
         }
     }
