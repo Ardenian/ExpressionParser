@@ -27,6 +27,9 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
         /// </summary>
         public T ParseToValue(string expression) => ParseToExpression(expression).ToValue();
 
+        /// <summary>
+        /// Searches for a character starting from an index, considering characters being equal to the character at index.
+        /// </summary>
         private int FindPartnerIndex(string s, int index, char partner)
         {
             var count = 1;
@@ -50,6 +53,9 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
             }
             return -1;
         }
+        /// <summary>
+        /// Split a string at a string while excluding brackets.
+        /// </summary>
         private string[] SplitAtOperator(string identifier, string s)
         {
             var tmp = new List<string>();
@@ -117,11 +123,12 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
         }
         private string RemoveOuterBrackets(string s)
         {
+            var count = 0;
             while (s[0] == '(' && FindPartnerIndex(s, 0, ')') == s.Length - 1)
             {
-                s = s.Substring(1, s.Length - 2);
+                ++count;
             }
-            return s;
+            return s.Substring(count, s.Length - count - 1);
         }
         private bool IsNegativeNumber(string[] array, int index)
         {
