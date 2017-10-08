@@ -124,7 +124,7 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
         private string RemoveOuterBrackets(string s)
         {
             var count = 0;
-            while (s[0] == '(' && FindPartnerIndex(s, 0, ')') == s.Length - 1)
+            while (s[count] == '(' && FindPartnerIndex(s, count, ')') == s.Length - 1)
             {
                 ++count;
             }
