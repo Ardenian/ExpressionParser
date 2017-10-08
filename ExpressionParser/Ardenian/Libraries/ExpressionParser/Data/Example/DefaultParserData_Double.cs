@@ -43,10 +43,12 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
             functions = new Dictionary<string, Func<double[], double>>()
             {
                 {"Abs", delegate(double[] arguments){return Math.Abs(arguments[0]); } },
-                {"Max", delegate(double[] arguments){return arguments.Max(); } },
+                {"Cos", delegate(double[] arguments){return Math.Cos(arguments[0]); } },
+                { "Max", delegate(double[] arguments){return arguments.Max(); } },
                 {"Min", delegate(double[] arguments){return arguments.Min(); } },
                 {"Sign", delegate(double[] arguments){return Math.Sign(arguments[0]); } },
-                {"Sum", delegate(double[] arguments){return arguments.Sum(); } },
+                {"Sin", delegate(double[] arguments){return Math.Sin(arguments[0]); } },
+                { "Sum", delegate(double[] arguments){return arguments.Sum(); } },
             };
 
         }

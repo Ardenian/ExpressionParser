@@ -42,10 +42,12 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
             functions = new Dictionary<string, Func<float[], float>>()
             {
                 {"Abs", delegate(float[] arguments){return Math.Abs(arguments[0]); } },
-                {"Max", delegate(float[] arguments){return arguments.Max(); } },
+                {"Cos", delegate(float[] arguments){return (float)Math.Cos(arguments[0]); } },
+                { "Max", delegate(float[] arguments){return arguments.Max(); } },
                 {"Min", delegate(float[] arguments){return arguments.Min(); } },
                 {"Sign", delegate(float[] arguments){return Math.Sign(arguments[0]); } },
-                {"Sum", delegate(float[] arguments){return arguments.Sum(); } },
+                {"Sin", delegate(float[] arguments){return (float)Math.Sin(arguments[0]); } },
+                { "Sum", delegate(float[] arguments){return arguments.Sum(); } },
             };
 
         }
