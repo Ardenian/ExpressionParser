@@ -40,6 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ardenian\Libraries\ExpressionParser\Data\Example\DefaultParserData_Double.cs" />
+    <Compile Include="Ardenian\Libraries\ExpressionParser\Data\Example\DefaultParserData_Float.cs" />
+    <Compile Include="Ardenian\Libraries\ExpressionParser\Data\Example\DefaultParserData_Int32.cs" />
     <Compile Include="Ardenian\Libraries\ExpressionParser\Data\Example\ParserData.cs" />
     <Compile Include="Ardenian\Libraries\ExpressionParser\Data\Example\ParserDataFactory.cs" />
     <Compile Include="Ardenian\Libraries\ExpressionParser\Data\IConvertible.cs" />
