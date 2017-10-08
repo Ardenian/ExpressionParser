@@ -146,8 +146,11 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
 
         private Value<T> ParseExpression(string s)
         {
+            if (s == null || s.Length == 0)
+            {
+                throw new ParserException($"Unexpected { (s == null ? "null" : "empty") } string when parsing expression.");
+            }
             s = RemoveOuterBrackets(s);
-
             if (Data.Operators.Keys != null && Data.Operators.Keys.Count > 0)
             {
                 foreach (var identifier in Data.Operators.Keys)
@@ -193,7 +196,7 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
                 default:
                     if (array.Any(item => string.IsNullOrEmpty(item)))
                     {
-                        throw new ParserException($"Operator '{identifier}' does not support empty sides.");
+                        throw new ParserException($"Operator '{identifier}' does not support empty elements.");
                     }
                     return new Operator<T>(identifier, ref Data, Array.ConvertAll(array, item => ParseExpression(item)));
             }
