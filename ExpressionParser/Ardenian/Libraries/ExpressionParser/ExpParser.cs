@@ -124,11 +124,11 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
         private string RemoveOuterBrackets(string s)
         {
             var count = 0;
-            while (s[count] == '(' && FindPartnerIndex(s, count, ')') == s.Length - 1)
+            while (s[count] == '(' && FindPartnerIndex(s, count, ')') == s.Length - count - 1)
             {
                 ++count;
             }
-            return count != 0 ? s.Substring(count, s.Length - count - 1) : s;
+            return count != 0 ? s.Substring(count, s.Length - count*2) : s;
         }
         private bool IsNegativeNumber(string[] array, int index)
         {
