@@ -4,48 +4,46 @@ using System.Linq;
 
 namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
 {
-    public class DefaultParserData_Float : ParserData<float>
+    public class DefaultParserData_Int32 : ParserData<int>
     {
-        public override IDictionary<string, float> Variables => variables;
-        private Dictionary<string, float> variables;
+        public override IDictionary<string, int> Variables => variables;
+        private Dictionary<string, int> variables;
 
-        public override IDictionary<string, Func<float, float, float>> Operators => operators;
-        private Dictionary<string, Func<float, float, float>> operators;
+        public override IDictionary<string, Func<int, int, int>> Operators => operators;
+        private Dictionary<string, Func<int, int, int>> operators;
 
-        public override IDictionary<string, Func<float[], float>> Functions => functions;
-        private Dictionary<string, Func<float[], float>> functions;
+        public override IDictionary<string, Func<int[], int>> Functions => functions;
+        private Dictionary<string, Func<int[], int>> functions;
 
-        public override float Parse(string s)
+        public override int Parse(string s)
         {
-            return float.Parse(s);
+            return int.Parse(s);
         }
-        public override bool TryParse(string s, out float result)
+        public override bool TryParse(string s, out int result)
         {
-            return float.TryParse(s, out result);
+            return int.TryParse(s, out result);
         }
 
-        public DefaultParserData_Float()
+        public DefaultParserData_Int32()
         {
-            variables = new Dictionary<string, float>() {
-                { "PI", (float)Math.PI },
-                { "E", (float)Math.E }
-            };
-            operators = new Dictionary<string, Func<float, float, float>>()
+            variables = new Dictionary<string, int>();
+
+            operators = new Dictionary<string, Func<int, int, int>>()
             {
-                {"+", delegate(float a, float b){ return a + b; } },
-                {"-", delegate(float a, float b){ return a - b; } },
-                {"*", delegate(float a, float b){ return a * b; } },
-                {"/", delegate(float a, float b){ return a / b; } },
-                {"^", delegate(float a, float b){ return (float)Math.Pow(a,b); } },
-                {"%", delegate(float a, float b){ return a % b; } },
+                {"+", delegate(int a, int b){ return a + b; } },
+                {"-", delegate(int a, int b){ return a - b; } },
+                {"*", delegate(int a, int b){ return a * b; } },
+                {"/", delegate(int a, int b){ return a / b; } },
+                {"^", delegate(int a, int b){ return a ^ b; } },
+                {"%", delegate(int a, int b){ return a % b; } },
             };
-            functions = new Dictionary<string, Func<float[], float>>()
+            functions = new Dictionary<string, Func<int[], int>>()
             {
-                {"Abs", delegate(float[] arguments){return Math.Abs(arguments[0]); } },
-                {"Max", delegate(float[] arguments){return arguments.Max(); } },
-                {"Min", delegate(float[] arguments){return arguments.Min(); } },
-                {"Sign", delegate(float[] arguments){return Math.Sign(arguments[0]); } },
-                {"Sum", delegate(float[] arguments){return arguments.Sum(); } },
+                {"Abs", delegate(int[] arguments){return Math.Abs(arguments[0]); } },
+                {"Max", delegate(int[] arguments){return arguments.Max(); } },
+                {"Min", delegate(int[] arguments){return arguments.Min(); } },
+                {"Sign", delegate(int[] arguments){return Math.Sign(arguments[0]); } },
+                {"Sum", delegate(int[] arguments){return arguments.Sum(); } },
             };
 
         }
