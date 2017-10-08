@@ -128,7 +128,7 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
             {
                 ++count;
             }
-            return s.Substring(count, s.Length - count - 1);
+            return count != 0 ? s.Substring(count, s.Length - count - 1) : s;
         }
         private bool IsNegativeNumber(string[] array, int index)
         {
