@@ -187,7 +187,7 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
                 default:
                     if (array.Any(item => string.IsNullOrEmpty(item)))
                     {
-                        throw new ParserException($"ExpParser: Operator '{identifier}' does not support empty sides.");
+                        throw new ParserException($"Operator '{identifier}' does not support empty sides.");
                     }
                     return new Operator<T>(identifier, ref Data, Array.ConvertAll(array, item => ParseExpression(item)));
             }
