@@ -15,7 +15,11 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser.Data
             {
                 return Variables[s];
             }
-            return Parse(s);
+            if (!TryParse(s, out T result))
+            {
+                throw new ParserException($"Couldn't parse \"{s}\". Did you forget a bracket or are you missing a ParserData entry, like variables or functions?");
+            }
+            return result;
         }
 
         public abstract T Parse(string s);
