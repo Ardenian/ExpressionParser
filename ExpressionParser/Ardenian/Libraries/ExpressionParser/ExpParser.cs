@@ -148,18 +148,24 @@ namespace Ardenian.Libraries.CSharp.ExpressionParser
         {
             s = RemoveOuterBrackets(s);
 
-            foreach (var identifier in Data.Operators.Keys)
+            if (Data.Operators.Keys != null && Data.Operators.Keys.Count > 0)
             {
-                if (ContainsOperator(identifier, s))
+                foreach (var identifier in Data.Operators.Keys)
                 {
-                    return ParseOperator(s, identifier);
+                    if (ContainsOperator(identifier, s))
+                    {
+                        return ParseOperator(s, identifier);
+                    }
                 }
             }
-            foreach (var identifier in Data.Functions.Keys)
+            if (Data.Functions.Keys != null && Data.Functions.Keys.Count > 0)
             {
-                if (s.IndexOf(identifier, StringComparison.Ordinal) == 0)
+                foreach (var identifier in Data.Functions.Keys)
                 {
-                    return ParseFunction(s, identifier);
+                    if (s.IndexOf(identifier, StringComparison.Ordinal) == 0)
+                    {
+                        return ParseFunction(s, identifier);
+                    }
                 }
             }
             return new Number<T>(s, ref Data);
